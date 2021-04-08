@@ -1,0 +1,51 @@
+@import '../sass/media-queries.scss';
+
+.layout {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-dark);
+}
+
+.container {
+  width: 1687px;
+  height: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 140px;
+  background-color: var(--background-light);
+  padding: var(--container-padding);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+
+  @media only screen and (max-height: 900px) {
+    height: 100%;
+    padding: 25px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    clip-path: polygon(100% 50%, 68% 100%, 100% 100%);
+    background-color: var(--blue-light);
+    border-radius: 10px;
+  }
+
+  @include respond(lg) {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+
+    &::before {
+      border-radius: 0;
+    }
+  }
+}

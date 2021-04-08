@@ -1,0 +1,218 @@
+@import '../sass/media-queries.scss';
+
+.folk {
+  // Z-index
+  --head-z-index: 10;
+  --neck-z-index: 1;
+  --corpus-z-index: 5;
+  --arm-z-index: 10;
+  --hand-z-index: 1;
+  --leg-z-index: 10;
+  --foot-z-index: 1;
+
+  // Dimensions
+  --head-width: 192px;
+  --head-height: 212px;
+  --arm-width: 140px;
+  --arm-height: 50px;
+  --neck-width: 46px;
+  --neck-height: 67px;
+  --corpus-width: 105px;
+  --corpus-height: 165px;
+  --hand-radius: 30px;
+  --leg-width: 175px;
+  --leg-height: 48px;
+  --foot-width: 82px;
+  --foot-height: 29px;
+
+  // Radius
+  --border-radius: 13px;
+
+  // Colors
+  --green-light: #8ac657;
+  --green-dark: #4ea06a;
+  --blue: #3c5a92;
+  --skin-color: #fece8a;
+
+  // FOLK CONTAINER
+  position: relative;
+  height: 565px;
+  width: 291px;
+  margin: -10px auto;
+
+  & > * {
+    position: absolute;
+  }
+
+  // HEAD
+  .head {
+    z-index: var(--head-z-index);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--head-width);
+    height: var(--head-height);
+    background: url(../images/head.png);
+  }
+
+  // NECK
+  .neck {
+    z-index: var(--neck-z-index);
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--neck-width);
+    height: var(--neck-height);
+    background-color: var(--skin-color);
+    border-radius: var(--border-radius);
+  }
+
+  // CORPUS
+  .corpus {
+    z-index: var(--corpus-z-index);
+    position: relative;
+    top: 225px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--corpus-width);
+    height: var(--corpus-height);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: linear-gradient(
+      90deg,
+      var(--green-light) 50%,
+      var(--green-dark) 50%
+    );
+
+    // Blue part of the corpus
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--blue) 30%, rgba(0, 0, 0, 0) 30%);
+    }
+  }
+
+  // ARMS
+  .arm {
+    z-index: var(--arm-z-index);
+    top: 259px;
+    width: var(--arm-width);
+    height: var(--arm-height);
+    border-radius: var(--border-radius);
+
+    &--left {
+      left: 0;
+      transform: rotate(-40deg);
+      background-color: var(--green-light);
+      border-bottom-right-radius: 0;
+    }
+
+    &--right {
+      left: 154px;
+      transform: rotate(40deg);
+      background-color: var(--green-dark);
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  // HANDS
+  .hand {
+    z-index: var(--hand-z-index);
+    top: 313px;
+    width: var(--hand-radius);
+    height: var(--hand-radius);
+    border-radius: 50%;
+    background-color: var(--skin-color);
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  // LEGS
+  .leg {
+    z-index: var(--leg-z-index);
+    top: 436px;
+    width: var(--leg-width);
+    height: var(--leg-height);
+    background-color: var(--blue);
+    border-radius: var(--border-radius);
+
+    &--left {
+      left: 17px;
+      transform: rotate(-80deg);
+      border-bottom-right-radius: 0;
+    }
+
+    &--right {
+      left: 100px;
+      transform: rotate(80deg);
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  // FEET
+  .foot {
+    z-index: var(--foot-z-index);
+    top: 531px;
+    width: var(--foot-width);
+    height: var(--foot-height);
+    background-color: var(--skin-color);
+    border-radius: var(--border-radius);
+
+    &--left {
+      left: 25px;
+      transform: rotate(12deg);
+      border-top-right-radius: 0;
+    }
+
+    &--right {
+      left: 186px;
+      transform: rotate(-12deg);
+      border-top-left-radius: 0;
+    }
+  }
+}
+
+// FOLK's CONTAINER
+.folk-container {
+  position: absolute;
+  top: calc(var(--container-padding) - 25px);
+  left: calc(var(--container-padding) - 25px);
+  width: 320px;
+  height: 626px;
+  transform: scale(0.8);
+
+  @include respond(lg) {
+    top: var(--container-padding);
+    left: var(--container-padding);
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+  @include respond(md) {
+    transform: scale(0.6);
+  }
+}
+
+// BAR
+.bar {
+  position: relative;
+  background-color: #53555d;
+  border-radius: 10px;
+
+  &--horizontal {
+    left: -35%;
+    width: 300px;
+    height: 30px;
+  }
+
+  &--vertical {
+    margin: -10px auto;
+    width: 30px;
+    height: 50px;
+  }
+}

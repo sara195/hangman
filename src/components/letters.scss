@@ -1,0 +1,8 @@
+.letters {
+  position: relative;
+  grid-row: 2;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 10px;
+}

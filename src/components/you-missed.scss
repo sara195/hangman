@@ -1,0 +1,15 @@
+.you-missed {
+    grid-column: 2;
+  
+    .title {
+      font-size: 3.2rem;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+  
+    .missed-letters {
+      font-size: 9.2rem;
+      color: var(--blue-light);
+      text-transform: uppercase;
+    }
+  }

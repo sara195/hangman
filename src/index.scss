@@ -1,0 +1,49 @@
+@import './sass/media-queries.scss';
+
+:root {
+  --white: #fff;
+  --gray: #53555d;
+  --gray-rgb: 80, 82, 90;
+  --blue-light: #4d69fa;
+  --gold: #ffba00;
+  --gold-rgb: 255, 186, 0;
+
+  --background-light: #f5f5f5;
+  --background-dark: #3b4163;
+  --background-dark-rgb: 59, 65, 99;
+
+  --box-shadow: 2px 3px 95px 0px rgba(0, 0, 0, 0.26);
+  --container-padding: 75px;
+
+  @include respond(lg) {
+    --container-padding: 25px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'AllerDisplay';
+
+  // 1 rem = 10px;
+  font-size: 62.5%;
+
+  @include respond(lg) {
+    // 1 rem = 9px
+    font-size: 56.25%;
+  }
+  @include respond(md) {
+    // 1 rem = 8px
+    font-size: 50%;
+  }
+}
+
+::selection {
+  color: var(--white);
+  background: var(--blue-light);
+}

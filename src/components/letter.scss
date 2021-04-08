@@ -1,0 +1,16 @@
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7.6rem;
+  font-family: 'AllerDisplay';
+  text-transform: uppercase;
+  border-radius: 10px;
+  color: var(--white);
+  background-color: rgba(var(--gray-rgb), 0.98);
+
+  &.disabled {
+    opacity: 0.3;
+    background-color: rgba(var(--gray-rgb), 0.3);
+  }
+}
